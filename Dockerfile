@@ -7,10 +7,12 @@ RUN mkdir /code
 ADD ./package.json /code
 WORKDIR /code
 
-RUN npm install
+RUN npm config set registry https://registry.npm.taobao.org
+
+RUN npm install --unsafe-perm
 
 ADD . /code
 
 EXPOSE 9000
 
-CMD ["npm","start"]
+CMD ["npm","run","dev"]

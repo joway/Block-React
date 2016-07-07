@@ -38,10 +38,27 @@ var config = {
             },
             {
                 test: /(\.jsx|\.js)$/,
-                loader: 'eslint-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                loader: 'eslint-loader'
+            },
+            {
+                test: /\.s(a|c)ss$/,
+                exclude: /node_modules/,
+                loader: 'style!css!sass'
+            },
+            {
+                test: /\.css$/, // Only .css files
+                loader: 'style!css' // Run both loaders,
+            },
+            {
+                test: /\.(png|jpg)$/,
+                exclude: /node_modules/,
+                loader: 'url?limit=25000'
             }
         ]
+    },
+    eslint: {
+        configFile: './.eslintrc'
     },
     resolve: {
         root: path.resolve('./src'),

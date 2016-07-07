@@ -1,20 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './components/Component';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-import AppBarExampleIcon from './components/AppBar';
-
+import SideBar from 'components/sidebar/SideBar';
+import Content from 'components/content/Content';
+import {Row, Col} from 'antd';
+import { Router, Route, Link } from 'react-router'
+import './index.scss'
 const App = () => (
-    <MuiThemeProvider>
-        <div>
-            <AppBarExampleIcon />
-            <Component />
-        </div>
-    </MuiThemeProvider>
+    <Row className="main" justify="center" type="flex">
+        <Col xs={24} md={6} className="side-bar">
+            <SideBar />
+        </Col>
+
+        <Col xs={24} md={18} className="content">
+            <Content />
+        </Col>
+    </Row>
+
 );
+// 新建一个组件让其在 Inbox 内部渲染
+const Message = React.createClass({
+    render() {
+        return <h3>Message</h3>
+    }
+});
 
 ReactDOM.render(
-    <App />,
+    <Router>
+        <Route path="/" component={App} />
+        <Route path="/post" component={Message} />
+    </Router>,
     document.getElementById('app')
 );

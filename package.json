@@ -23,7 +23,7 @@
   },
   "scripts": {
     "dev": "./node_modules/.bin/webpack --watch --inline",
-    "start": "node server.js",
+    "start": "./node_modules/.bin/webpack --watch --inline",
     "build": "./node_modules/.bin/webpack --config=webpack.build.config.js",
     "test": "karma start",
     "test:ci": "watch 'npm run test' src/"

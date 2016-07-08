@@ -4,13 +4,17 @@
 import React from 'react';
 import {Row, Col} from 'antd';
 import {Card} from 'antd';
+import { Link } from 'react-router'
 
 const PostCard = () => (
-    <Card title="Post Title" extra={<a href="#">More</a>} style={{ width: 800 }}>
-        <p>Post content</p>
-        <p>Post content</p>
-        <p>Post content</p>
-    </Card>
+    <Link to="/about" to="/post">
+        <Card title="Post Title" style={{ width: 800 }}>
+            <p>Post content</p>
+            <p>Post content</p>
+            <p>Post content</p>
+        </Card>
+    </Link>
+
 );
 
 export default PostCard;

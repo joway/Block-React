@@ -1,4 +1,4 @@
-FROM node:6.2.2
+FROM node:6
 MAINTAINER Joway Wang "joway.w@gmail.com"
 
 RUN mkdir /code
@@ -7,9 +7,7 @@ RUN mkdir /code
 ADD ./package.json /code
 WORKDIR /code
 
-RUN npm config set registry https://registry.npm.taobao.org
-
-RUN npm install --unsafe-perm
+RUN npm install --ignore-scripts --unsafe-perm
 
 ADD . /code
 

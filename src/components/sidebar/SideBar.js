@@ -12,7 +12,7 @@ import './SideBar.scss';
 const SideBar = React.createClass({
     render() {
         return (
-            <Row type="flex" justify="start">
+            <Row type="flex" justify="start" gutter={16}>
                 <Profile />
                 <SideMenu />
                 <Social />

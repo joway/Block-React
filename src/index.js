@@ -2,32 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SideBar from 'components/sidebar/SideBar';
 import Content from 'components/content/Content';
+import Post from 'components/content/post/Post'
 import {Row, Col} from 'antd';
-import { Router, Route, Link } from 'react-router'
+import {Router, Route, Link} from 'react-router'
 import './index.scss'
 const App = () => (
-    <Row className="main" justify="center" type="flex">
-        <Col xs={24} md={6} className="side-bar">
+    <Row className="main" justify="start" type="flex" >
+        <Col xs={0} md={4} className="side-bar">
             <SideBar />
         </Col>
 
-        <Col xs={24} md={18} className="content">
-            <Content />
-        </Col>
+        <Row type="flex" justify="end">
+            <Col xs={24} md={20} className="content">
+                <Content />
+            </Col>
+        </Row>
     </Row>
 
 );
-// 新建一个组件让其在 Inbox 内部渲染
-const Message = React.createClass({
-    render() {
-        return <h3>Message</h3>
-    }
-});
+
+const PostDetail = () => (
+    <Row className="main" justify="start" type="flex" >
+        <Col xs={0} md={4} className="side-bar">
+            <SideBar />
+        </Col>
+        <Row type="flex" justify="end">
+            <Col xs={24} md={20} className="content">
+                <Post />
+            </Col>
+        </Row>
+    </Row>
+
+);
+
 
 ReactDOM.render(
     <Router>
-        <Route path="/" component={App} />
-        <Route path="/post" component={Message} />
+        <Route path="/" component={App}/>
+        <Route path="post" component={PostDetail}/>
     </Router>,
     document.getElementById('app')
 );

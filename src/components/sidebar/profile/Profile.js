@@ -3,10 +3,13 @@
  */
 import React from 'react';
 import './profile.scss'
+import { Link } from 'react-router'
 
 const Profile = () => (
     <div className='profile'>
-        <img src="https://joway.wang/assets/img/logo.jpg" className="avatar"/>
+        <Link to="/">
+            <img src="https://joway.wang/assets/img/logo.jpg" className="avatar"/>
+        </Link>
     </div>
 );
 

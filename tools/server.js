@@ -12,7 +12,7 @@ const PORT = require('../package.json').webpackDevServerPort;
 function startDevServer() {
   devConfig.entry = {
     main: [
-      `webpack-dev-server/client?http://localhost:${PORT}`,
+      `webpack-dev-server/client?http://0.0.0.0:${PORT}`,
       'webpack/hot/only-dev-server',
       './styles/index.less',
       './index',
@@ -34,7 +34,7 @@ function startDevServer() {
     if (err) {
       console.log(err);
     }
-    console.log(`Listening at localhost:${PORT}`);
+    console.log(`Listening at 0.0.0.0:${PORT}`);
   });
 }
 

@@ -11,6 +11,6 @@ RUN npm install --ignore-scripts --unsafe-perm
 
 ADD . /code
 
-EXPOSE 9000
+EXPOSE 6076
 
 CMD ["npm","start"]

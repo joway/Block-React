@@ -1,0 +1,1 @@
+export rest  from './config/restConfig'

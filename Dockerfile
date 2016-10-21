@@ -1,4 +1,4 @@
-FROM node:6
+FROM node:6.2.2
 MAINTAINER Joway Wang "joway.w@gmail.com"
 
 RUN mkdir /code

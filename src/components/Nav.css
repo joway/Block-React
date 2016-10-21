@@ -1,0 +1,15 @@
+body {
+    background-color: #ececec;
+}
+
+.ant-layout-top .ant-layout-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    margin: 16px 28px 16px 16px;
+    float: left;
+}
+
+.nav-text {
+    font-size: large;
+}

@@ -1,0 +1,13 @@
+.comment-author {
+    color: #6495ED;
+}
+.comment-role{
+    margin-left: 10px;
+    padding: 5px;
+    line-height: 4px;
+    height: 15px;
+    font-size: 3px;
+}
+.comment-box{
+    margin: 10px 0;
+}

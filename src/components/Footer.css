@@ -1,0 +1,14 @@
+.footer-box{
+    background-color: #fff;
+}
+.footer {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.footer p {
+    color: #333;
+    font-size: larger;
+}

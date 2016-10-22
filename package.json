@@ -3,22 +3,12 @@
   "version": "0.0.1",
   "description": "My awesome project.",
   "scripts": {
-    "add:action": "node ./tools/cli/add_action.js",
-    "add:async-action": "node ./tools/cli/add_async_action.js",
-    "add:component": "node ./tools/cli/add_component.js",
-    "add:feature": "node ./tools/cli/add_feature.js",
-    "add:page": "node ./tools/cli/add_page.js",
     "build": "node ./tools/build.js",
     "build:test": "node ./tools/build_test_server.js",
-    "rm:action": "node ./tools/cli/rm_action.js",
-    "rm:async-action": "node ./tools/cli/rm_async_action.js",
-    "rm:component": "node ./tools/cli/rm_component.js",
-    "rm:feature": "node ./tools/cli/rm_feature.js",
-    "rm:page": "node ./tools/cli/rm_page.js",
     "start": "node ./tools/server.js",
     "test": "node ./tools/run_test.js app",
     "test:app": "node ./tools/run_test.js app",
-    "test:cli": "node ./tools/run_test.js cli"
+    "test:cli": "node ./tools/run_test.js cli",
   },
   "babel": {
     "presets": [

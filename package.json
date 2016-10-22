@@ -8,7 +8,7 @@
     "start": "node ./tools/server.js",
     "test": "node ./tools/run_test.js app",
     "test:app": "node ./tools/run_test.js app",
-    "test:cli": "node ./tools/run_test.js cli",
+    "test:cli": "node ./tools/run_test.js cli"
   },
   "babel": {
     "presets": [

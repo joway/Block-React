@@ -13,44 +13,45 @@ import '../home.css'
 const { actions } = rest;
 
 @connect((state) => ({
-  v2ex: state.v2ex,
+  posts: state.articles.data
 }))
 class HomeContainer extends React.Component {
   constructor (props) {
     super(props);
     const { dispatch } = this.props;
-    dispatch(actions.v2ex());
+    dispatch(actions.articles());
   }
 
   render () {
+    const { posts } = this.props;
     return (
       <Row>
-          <Col span={15} offset={1}>
-            <ArticlesList />
-            <Paging />
-          </Col>
-          <Col span={6} offset={1}>
-            <Row className="right-panel-box">
-              <Profile />
-            </Row>
-            <Row className="right-panel-box">
-              <SkillPie />
-            </Row>
-            <Row className="right-panel-box">
-              <AnalysisPie />
-            </Row>
-          </Col>
+        <Col span={15} offset={1}>
+          <ArticlesList posts={posts}/>
+          <Paging />
+        </Col>
+        <Col span={6} offset={1}>
+          <Row className="right-panel-box">
+            <Profile />
+          </Row>
+          <Row className="right-panel-box">
+            <SkillPie />
+          </Row>
+          <Row className="right-panel-box">
+            <AnalysisPie />
+          </Row>
+        </Col>
       </Row>
     )
   }
 }
 
 HomeContainer.propTypes = {
-  v2ex: PropTypes.array.isRequired,
+  articles: PropTypes.array.isRequired,
 };
 
 HomeContainer.defaultProps = {
-  v2ex: []
+  articles: []
 };
 
 export default HomeContainer;

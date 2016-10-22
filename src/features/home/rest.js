@@ -1,12 +1,13 @@
 import { transformers } from 'redux-api';
+import { ARTICLE_LIST_API } from "../../utils/apis";
 
 const headers = {
   Accept: "application/json"
 };
 
 export default {
-  v2ex: {
-    url: 'https://api.github.com/users/joway/orgs',
+  articles: {
+    url: ARTICLE_LIST_API,
     options: {
       headers,
     },

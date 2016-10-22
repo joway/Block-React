@@ -15,6 +15,7 @@ const buildFolder = path.join(__dirname, '../build');
 shell.rm('-rf', buildFolder);
 shell.mkdir(buildFolder);
 shell.mkdir(`${buildFolder}/static`);
+shell.cp('-R', path.join(__dirname, '../res'), `${buildFolder}/res`);
 
 const timestamp = require('crypto')
   .createHash('md5')

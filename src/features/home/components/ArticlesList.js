@@ -4,9 +4,7 @@ import { Link } from 'react-router';
 import ReactMarkdown from 'react-markdown';
 import randomColor from 'randomcolor';
 
-export default class ArticlesList extends Component {
-  static propTypes = {};
-
+class ArticlesList extends Component {
   renderLink = (post) => (
     <Link to={`post/${post.id}`} className="article-card-title">{post.title}</Link>
   );
@@ -33,45 +31,14 @@ export default class ArticlesList extends Component {
   );
 
   render () {
-    const markdown = `
-Changes are automatically rendered as you type.
+    const { posts } = this.props;
 
-* Follows the [CommonMark](http://commonmark.org/) spec
-* Renders actual, "native" React DOM elements
-* Allows you to escape or skip HTML (try toggling the checkboxes above)
-* If you escape or skip the HTML, no dangerouslySetInnerHTML is used! Yay!
-> How about some code?
-xxxxx
-    `;
-
-    const postList = [
-      {
-        id: 1,
-        author: 'Joway',
-        tags: ['Django', 'Python'],
-        catalog: '编程',
-        title: '我是标题 -- Title',
-        content: markdown,
-        created_at: '2016-10-10',
-        updated_at: '2016-10-19'
-      },
-      {
-        id: 2,
-        author: 'Joway',
-        tags: ['Django', 'Python'],
-        catalog: '编程',
-        title: '我是标题 -- Title',
-        content: markdown,
-        created_at: '2016-10-10',
-        updated_at: '2016-10-19'
-      }
-    ];
     return (
       <Row className="content-block article-list">
         <Col className="p-30">
           <Timeline>
             {
-              postList.map((post)=> (this.renderPost(post)))
+              posts.map((post)=> (this.renderPost(post)))
             }
           </Timeline>
         </Col>
@@ -79,3 +46,13 @@ xxxxx
     );
   }
 }
+
+ArticlesList.propTypes = {
+  posts: PropTypes.array.isRequired
+};
+
+ArticlesList.defaultProps = {
+  posts: []
+};
+
+export default ArticlesList;

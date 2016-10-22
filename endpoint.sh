@@ -2,5 +2,5 @@
 set -e
 set -x
 
-nginx -g 'daemon off;' -c $CODE/src/nginx.conf
-nginx -c $CODE/src/nginx.conf
+nginx -g 'daemon off;' -c $CODE/nginx.conf
+nginx -c $CODE/nginx.conf

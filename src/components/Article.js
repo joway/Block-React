@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import randomColor from 'randomcolor';
 import './Article.css'
 
-export default class Post extends Component {
+class Article extends Component {
   static propTypes = {
     article: PropTypes.object.isRequired
   };
@@ -28,9 +28,15 @@ export default class Post extends Component {
           <h1 className="post-title">{article.title}</h1>
           <span className="to-right">{article.created_at}</span>
         </div>
-        {article.tags.length > 0 && this.renderTags(article.tags)}
-        <ReactMarkdown className="markdown-body m-b-30" source={article.content}/>
+        {article.tag_list != undefined && this.renderTags(article.tag_list)}
+        <ReactMarkdown className="markdown-body m-b-30" source={article.content || ''}/>
       </artile>
     );
   }
 }
+
+Article.propTypes = {
+  article: PropTypes.object.isRequired
+};
+
+export default Article;

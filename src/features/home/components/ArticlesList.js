@@ -22,7 +22,7 @@ class ArticlesList extends Component {
   renderPost = (post) => (
     <Timeline.Item key={post.id}>
       <Card title={
-      <div>{this.renderLink(post)}{this.renderTags(post.tags)}</div>
+      <div>{this.renderLink(post)}{this.renderTags(post.tag_list)}</div>
       } style={{padding: '10px'}}>
         <ReactMarkdown className="markdown-body" source={post.content}>
         </ReactMarkdown>
@@ -32,7 +32,6 @@ class ArticlesList extends Component {
 
   render () {
     const { posts } = this.props;
-
     return (
       <Row className="content-block article-list">
         <Col className="p-30">

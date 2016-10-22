@@ -42,6 +42,10 @@ module.exports = {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader'
       }, {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      },
+      {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
       }, {
@@ -50,12 +54,12 @@ module.exports = {
       }, {
         test: /\.(png|jpg)$/,
         loader: 'url-loader?limit=8192'
-      }, { 
-        test: /\.css$/, 
-        loader: "style-loader!css-loader?importLoaders=1" 
+      }, {
+        test: /\.css$/,
+        loader: "style-loader!css-loader?importLoaders=1"
       }, {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-        loader: 'url-loader?limit='+9999999,
+        loader: 'url-loader?limit=' + 9999999,
       }
     ]
   }

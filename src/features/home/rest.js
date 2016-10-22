@@ -11,6 +11,6 @@ export default {
     options: {
       headers,
     },
-    transformer: transformers.array
+    transformer: transformers.object
   },
 };

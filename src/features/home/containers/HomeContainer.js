@@ -1,34 +1,49 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { rest } from '../../../common';
-import { Row, Col } from 'antd';
+import { Row, Col, Spin, Card, Pagination } from 'antd';
 import ArticlesList from '../components/ArticlesList'
-import Paging from '../components/Paging'
+import Paging from '../../../components/Paging'
 import Profile from '../../../components/Profile'
 import AnalysisPie from '../../../components/AnalysisPie';
 import SkillPie from '../../../components/SkillPie';
+import Loading from '../../../components/Loading';
 
 import '../home.css'
 
 const { actions } = rest;
 
 @connect((state) => ({
-  posts: state.articles.data
+  pagination: state.articles
 }))
 class HomeContainer extends React.Component {
   constructor (props) {
     super(props);
     const { dispatch } = this.props;
-    dispatch(actions.articles());
+
+    const page = this.props.location.query.page != undefined ? Number(this.props.location.query.page) : 1;
+    this.state = {
+      page
+    };
+    dispatch(actions.articles({ page }));
   }
 
   render () {
-    const { posts } = this.props;
+    const { pagination } = this.props;
+    const { page } = this.state;
+    if (pagination.loding) {
+      return (
+        <Loading />
+      )
+    }
     return (
       <Row>
         <Col span={15} offset={1}>
-          <ArticlesList posts={posts}/>
-          <Paging />
+          <Card className="content-block p-0">
+            <ArticlesList posts={pagination.data.results}/>
+
+            <Pagination showQuickJumper defaultCurrent={page} total={pagination.data.count}/>
+          </Card>
         </Col>
         <Col span={6} offset={1}>
           <Row className="right-panel-box">
@@ -45,13 +60,5 @@ class HomeContainer extends React.Component {
     )
   }
 }
-
-HomeContainer.propTypes = {
-  articles: PropTypes.array.isRequired,
-};
-
-HomeContainer.defaultProps = {
-  articles: []
-};
 
 export default HomeContainer;

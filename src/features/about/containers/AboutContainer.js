@@ -23,7 +23,7 @@ class AboutContainer extends React.Component {
   render () {
     const { article } = this.props;
 
-    if (article.loding) {
+    if (article.loading) {
       return (
         <Loading />
       )
@@ -33,7 +33,7 @@ class AboutContainer extends React.Component {
       <Row>
         <Col span={14} offset={5}>
           <Card className="content-block">
-            {article.loding && <Spin size="large"/>}
+            {article.loading && <Spin size="large"/>}
             <Article article={article.data}/>
           </Card>
 

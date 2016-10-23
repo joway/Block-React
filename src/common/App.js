@@ -1,45 +1,31 @@
 import React, { Component, PropTypes } from 'react';
-import routeConfig from './config/routeConfig';
 import { connect } from 'react-redux';
+import rest from './config/restConfig';
 import 'antd/dist/antd.css';
 import '../styles/github.css';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import NavRoutes from './NavRoutes';
+
+const { actions } = rest;
 
 @connect((state) => ({
-  isAuthenticated: state.auth.isAuthenticated
+  user: state.user
 }))
 class App extends Component {
-  render () {
-    const NavRoutes = [
-      {
-        name: 'Blog',
-        path: ''
-      }, {
-        name: 'Bullshit',
-        path: 'bullshit'
-      }, {
-        name: 'Timeline',
-        path: 'timeline'
-      }, {
-        name: 'Photo',
-        path: 'photo'
-      }, {
-        name: 'Lab',
-        path: 'lab'
-      }, {
-        name: 'About',
-        path: 'about'
-      }
-    ];
 
+  componentWillMount = () => {
+    this.props.dispatch(actions.user());
+  };
+
+  render () {
+    const { user } = this.props;
     return (
       <div className="app">
-        <Nav routes={NavRoutes} isAuthenticated={this.props.isAuthenticated}/>
+        <Nav routes={NavRoutes} user={user}/>
         <div className="page-container">
           {this.props.children}
         </div>
-
         <Footer />
       </div>
     );

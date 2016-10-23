@@ -8,11 +8,12 @@ import Loading from '../../../components/Loading';
 import AnalysisPie from '../../../components/AnalysisPie';
 import Article from '../../../components/Article'
 import '../Post.css'
+import { COMMENT_TYPE_ARTICLE } from "../../../utils/constants";
 
 const { actions } = rest;
 
 @connect((state) => ({
-  article: state.article.data
+  article: state.article
 }))
 class PostContainer extends React.Component {
   constructor (props) {
@@ -21,6 +22,12 @@ class PostContainer extends React.Component {
     dispatch(actions.article({ id: props.params.id }));
   }
 
+
+  createComment = (content) => {
+    const { dispatch } = this.props;
+    const data = { comment_to: this.props.params.id, type: COMMENT_TYPE_ARTICLE, content: content }
+    dispatch(actions.comment({}, {body: JSON.stringify(data)}));
+  };
 
   renderPaging = (article) => {
     const curID = article.id;
@@ -36,19 +43,21 @@ class PostContainer extends React.Component {
 
     const { article } = this.props;
 
-    if (article.loding) {
+    if (article.loading) {
       return <Loading />
     }
+
+    console.log(article);
     return (
       <Row>
         <Col span={15} offset={1}>
           <Card className="content-block m-b-3">
-            <Article article={article}/>
-            {this.renderPaging(article)}
+            <Article article={article.data}/>
+            {this.renderPaging(article.data)}
           </Card>
 
           <Card className="content-block p-30">
-            {article.comments != undefined && <CommentPanel comments={article.comments}/>}
+            { article.data.comments != undefined && <CommentPanel comments={article.data.comments} createComment={this.createComment}/> }
           </Card>
         </Col>
         <Col span={6} offset={1}>

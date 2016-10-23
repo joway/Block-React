@@ -1,6 +1,6 @@
 import App from './App';
 import PageNotFound from '../components/PageNotFound';
-import Login from '../features/auth/containers/Login';
+import authRoute from '../features/auth/router';
 import homeRoute from '../features/home/router';
 import postRoute from '../features/post/router';
 import aboutRoute from '../features/about/router';
@@ -21,7 +21,7 @@ export default [{
     bullshitRoute,
     postRoute,
     photoRoute,
-    { path: 'login', name: 'Login', component: Login },
+    authRoute,
     { path: '*', name: 'Page not found', component: PageNotFound },
     // { path: '404', name: 'Page not found', component: requireAuthentication(PageNotFound) },
   ],

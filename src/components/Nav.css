@@ -10,6 +10,22 @@ body {
     float: left;
 }
 
+.avatar-log {
+    width: 32px;
+    height: 32px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin: 16px 10px 16px 10px;
+    float: left;
+}
+
+.avatar-log-username {
+    font-size: large;
+    color: #333;
+}
+
 .nav-text {
     font-size: large;
+    color: #333;
 }

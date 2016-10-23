@@ -1,15 +1,23 @@
 import reduxApi from 'redux-api';
 import Rests from '../Rests';
+import { browserHistory } from 'react-router'
+import { errorDialog } from "../../utils/dialog";
 
 const adapter = (fetch) => {
   return function (url, opts) {
-    // opts.mode = 'no-cors';
+    const token = localStorage.getItem('token');
+    if (token != null && token != undefined) {
+      opts.headers = { ...opts.headers, Authorization: `JWT ${token}` };
+    } else {
+      delete opts.headers['Authorization']
+    }
     return fetch(url, opts).then((response) => {
       if (response.status != 200) {
         return response.json().then((data) => {
           return {
+            error: true,
             status: response.status,
-            data,
+            detail: data.detail
           };
         });
       }

@@ -31,7 +31,7 @@ class HomeContainer extends React.Component {
   render () {
     const { pagination } = this.props;
     const { page } = this.state;
-    if (pagination.loding) {
+    if (pagination.loading) {
       return (
         <Loading />
       )

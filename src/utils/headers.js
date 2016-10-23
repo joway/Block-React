@@ -22,6 +22,7 @@ export const safeHeaders = {
 
 export const unsafeHeaders = {
   "Accept": "application/json",
+  "Content-Type": "application/json"
 };
 
 export const uploadHeaders = {

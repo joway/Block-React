@@ -9,8 +9,8 @@ RUN mkdir /code && \
     mkdir /data && \
     mkdir -p /data/logs/nginx
 
-ENV DATA /data/
-ENV CODE /code/
+ENV DATA /data
+ENV CODE /code
 
 WORKDIR $CODE
 VOLUME $DATA
@@ -18,9 +18,9 @@ VOLUME $DATA
 # For Cache
 ADD ./package.json $CODE
 
-RUN npm install --ignore-scripts --unsafe-perm
+RUN npm install
 
-ADD . $CODE
+ADD . $CODE/
 
 RUN npm run build && \
     chmod +x ./endpoint.sh

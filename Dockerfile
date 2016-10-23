@@ -1,4 +1,4 @@
-FROM node:6.2.2
+FROM node:6.5.0
 MAINTAINER Joway Wang "joway.w@gmail.com"
 
 
@@ -9,8 +9,8 @@ RUN mkdir /code && \
     mkdir /data && \
     mkdir -p /data/logs/nginx
 
-ENV DATA /data
-ENV CODE /code
+ENV DATA /data/
+ENV CODE /code/
 
 WORKDIR $CODE
 VOLUME $DATA

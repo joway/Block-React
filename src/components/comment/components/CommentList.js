@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { Row, Col, Card, Timeline, Tag } from 'antd';
 import { Link } from 'react-router';
 import Comment from './Comment';
-import '../Comment.css';
 
 
 class CommentList extends Component {

@@ -1,13 +1,14 @@
 import reduxApi from 'redux-api';
 import Rests from '../Rests';
 import { browserHistory } from 'react-router'
-import { errorDialog } from "../../utils/dialog";
 
 const adapter = (fetch) => {
   return function (url, opts) {
     const token = localStorage.getItem('token');
     if (token != null && token != undefined) {
-      opts.headers = { ...opts.headers, Authorization: `JWT ${token}` };
+      if (opts.JWT != false) {
+        opts.headers = { ...opts.headers, Authorization: `JWT ${token}` };
+      }
     } else {
       delete opts.headers['Authorization']
     }

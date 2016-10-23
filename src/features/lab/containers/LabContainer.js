@@ -2,23 +2,38 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { rest } from '../../../common';
 import { Row, Col, Card, Tag } from 'antd';
+import Loading from '../../../components/Loading';
 import GithubPie from '../components/GithubPie';
 import '../Lab.css'
 
 const { actions } = rest;
 
-@connect((state) => ({}))
+@connect((state) => ({
+  reposState: state.githubRepos
+}))
 class LabContainer extends React.Component {
-  constructor (props) {
-    super(props);
-  }
+
+  syncGithubRepos = () => {
+    const { dispatch } = this.props;
+    dispatch(actions.githubRepos({sort: 'updated'}));
+  };
+
+  componentWillMount = () => {
+    this.syncGithubRepos();
+  };
 
   render () {
+    const { reposState }  = this.props;
+
+    if (reposState.loading) {
+      return <Loading />
+    }
+
     return (
-      <Row>
+      <Row type="flex" justify="space-around" align="middle">
         <Col span={20} offset={2}>
           <Card className="content-block">
-            <GithubPie />
+            <GithubPie repos={ reposState.data }/>
           </Card>
         </Col>
       </Row>

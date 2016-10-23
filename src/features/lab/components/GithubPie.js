@@ -1,56 +1,25 @@
 import React, { Component, PropTypes } from 'react';
-import { Row, Col, Card, Timeline, Tag } from 'antd';
+import { Row, Col, Card, Timeline, Tag, Icon } from 'antd';
 import { Link } from 'react-router';
 import ReactMarkdown from 'react-markdown';
 import randomColor from 'randomcolor';
 
-export default class GithubPie extends Component {
-  static propTypes = {};
-
+class GithubPie extends Component {
   render () {
-    const projects = [
-      {
-        id: 1,
-        title: 'Github 项目',
-        description: '一个xxxxxx的项目',
-        tags: ['Python', 'Django'],
-        created_at: '2016-01-01'
-      },
-      {
-        id: 2,
-        title: 'Github 项目',
-        description: '一个xxxxxx的项目',
-        tags: ['Python', 'Django'],
-        created_at: '2016-01-01'
-      },
-      {
-        id: 3,
-        title: 'Github 项目',
-        description: '一个xxxxxx的项目',
-        tags: ['Python', 'Django'],
-        created_at: '2016-01-01'
-      },
-      {
-        id: 4,
-        title: 'Github 项目',
-        description: '一个xxxxxx的项目',
-        tags: ['Python', 'Django'],
-        created_at: '2016-01-01'
-      }
-    ];
+    const { repos } = this.props;
     return (
-      <Row>
+      <Row type="flex" justify="space-around" align="middle">
         {
-          projects.map((project) => (
-            <Col span={6} key={project.id}>
-              <Card title={project.title} className="m-30">
-                <p className="m-b-30">{project.description}</p>
+          repos.map((repo) => (
+            <Col span={8} key={repo.id}>
+              <Card title={
+                <div><a href={repo.html_url} target="_blank" style={{color: '#333', fontWeight: '800'}}>
+                <span>{repo.name}</span></a><span className="to-right">{repo.created_at}</span></div>} className="m-30">
+                <p className="m-b-30">{repo.description}</p>
                 <div className="to-right m-b-10">
-                  {
-                    project.tags.map((tag) => (
-                      <Tag color={randomColor({luminosity: 'light'})} key={tag}>{tag}</Tag>
-                    ))
-                  }
+                  {repo.language && <Tag color={randomColor({luminosity: 'light'})}>{repo.language}</Tag>}
+                  <Tag color={randomColor({luminosity: 'light'})}>
+                    <Icon type="star" className="m-r-5"/>{repo.stargazers_count}</Tag>
                 </div>
               </Card>
             </Col>
@@ -60,3 +29,13 @@ export default class GithubPie extends Component {
     );
   }
 }
+
+GithubPie.propTypes = {
+  repos: PropTypes.array.isRequired
+};
+
+GithubPie.defaultProps = {
+  repos: []
+};
+
+export default GithubPie;

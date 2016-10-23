@@ -11,3 +11,6 @@ export const ARTICLE_LIST_API = BASE_API + 'article/';
 export const ARTICLE_DETAIL_API = BASE_API + 'article/:id/';
 export const ARTICLE_ABOUT_API = BASE_API + 'article/about/';
 export const COMMENT_API = BASE_API + 'comment/';
+
+// lab
+export const GITHUB_REPOS_API = 'https://api.github.com/users/joway/repos';

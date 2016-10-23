@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { async } from 'redux-api';
 import { rest } from '../../../common';
 import { Row, Col, Card, Tag, Input, Button, Icon } from 'antd';
 import CommentPanel from '../../../components/comment/components/CommentPanel'
@@ -8,7 +9,6 @@ import Loading from '../../../components/Loading';
 import AnalysisPie from '../../../components/AnalysisPie';
 import Article from '../../../components/Article'
 import '../Post.css'
-import { COMMENT_TYPE_ARTICLE } from "../../../utils/constants";
 
 const { actions } = rest;
 
@@ -16,17 +16,13 @@ const { actions } = rest;
   article: state.article
 }))
 class PostContainer extends React.Component {
-  constructor (props) {
-    super(props);
+  syncArticle = () => {
     const { dispatch } = this.props;
-    dispatch(actions.article({ id: props.params.id }));
-  }
+    dispatch(actions.article({ id: this.props.params.id }));
+  };
 
-
-  createComment = (content) => {
-    const { dispatch } = this.props;
-    const data = { comment_to: this.props.params.id, type: COMMENT_TYPE_ARTICLE, content: content }
-    dispatch(actions.comment({}, {body: JSON.stringify(data)}));
+  componentWillMount = () => {
+    this.syncArticle();
   };
 
   renderPaging = (article) => {
@@ -41,13 +37,12 @@ class PostContainer extends React.Component {
 
   render () {
 
-    const { article } = this.props;
+    const { article, dispatch } = this.props;
 
     if (article.loading) {
       return <Loading />
     }
 
-    console.log(article);
     return (
       <Row>
         <Col span={15} offset={1}>
@@ -57,7 +52,11 @@ class PostContainer extends React.Component {
           </Card>
 
           <Card className="content-block p-30">
-            { article.data.comments != undefined && <CommentPanel comments={article.data.comments} createComment={this.createComment}/> }
+            { article.data.comments != undefined &&
+            <CommentPanel comments={article.data.comments}
+                          dispatch={this.props.dispatch}
+                          commentTo={article.data.id}
+                          callback={this.syncArticle}/>}
           </Card>
         </Col>
         <Col span={6} offset={1}>

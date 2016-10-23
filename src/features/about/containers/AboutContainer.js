@@ -14,11 +14,15 @@ const { actions } = rest;
   article: state.articleAbout
 }))
 class AboutContainer extends React.Component {
-  constructor (props) {
-    super(props);
+  syncArticle = () => {
     const { dispatch } = this.props;
     dispatch(actions.articleAbout());
-  }
+  };
+
+  componentWillMount = () => {
+    this.syncArticle();
+  };
+
 
   render () {
     const { article } = this.props;
@@ -38,7 +42,13 @@ class AboutContainer extends React.Component {
           </Card>
 
           <Card className="content-block">
-            {article.data.comments != undefined && <CommentPanel comments={article.data.comments}/>}
+            {
+              article.data.comments != undefined &&
+              <CommentPanel comments={article.data.comments}
+                            dispatch={this.props.dispatch}
+                            commentTo={article.data.id}
+                            callback={this.syncArticle}/>
+            }
           </Card>
         </Col>
       </Row>

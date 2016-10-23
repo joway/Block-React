@@ -1,4 +1,4 @@
-export const BASE_API = 'https://blog.joway.wang/';
+export const BASE_API = 'https://api.joway.wang/';
 // export const BASE_API = 'http://localhost:8000/';
 export const AUTH_API_LOGIN = BASE_API + 'auth/login/';
 export const AUTH_API_LOGOUT = BASE_API + 'auth/logout/';

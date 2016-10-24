@@ -25,6 +25,6 @@ ADD . $CODE/
 RUN npm run build && \
     chmod +x ./endpoint.sh
 
-EXPOSE 8000
+EXPOSE 80
 
 CMD ["./endpoint.sh"]

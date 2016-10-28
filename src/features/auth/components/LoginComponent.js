@@ -1,11 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { Row, Col, Card, Input, Button, Form } from 'antd';
+import React, { Component, PropTypes } from "react";
+import { Row, Col, Card, Input, Button, Form } from "antd";
 const createForm = Form.create;
 const FormItem = Form.Item;
-function noop () {
-  return false;
-}
-
 
 class LoginComponent extends Component {
 

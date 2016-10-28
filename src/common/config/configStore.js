@@ -1,7 +1,7 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
-import thunk from 'redux-thunk';
-import rootReducer from './../rootReducer';
+import { createStore, applyMiddleware, compose } from "redux";
+import { routerMiddleware } from "react-router-redux";
+import thunk from "redux-thunk";
+import rootReducer from "./../reducer/rootReducer";
 
 const middlewares = [thunk];
 let devToolsExtension = f => f;

@@ -1,14 +1,14 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import { async } from 'redux-api';
-import { rest } from '../../../common';
-import { Row, Col, Card, Tag, Input, Button, Icon } from 'antd';
-import CommentPanel from '../../../components/comment/components/CommentPanel'
-import Loading from '../../../components/Loading';
-import AnalysisPie from '../../../components/AnalysisPie';
-import Article from '../../../components/Article'
-import '../Post.css'
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router";
+import { async } from "redux-api";
+import rest from "../../../common/rest";
+import { Row, Col, Card, Tag, Input, Button, Icon } from "antd";
+import CommentPanel from "../../../components/comment/CommentPanel";
+import Loading from "../../../components/decorator/Loading";
+import AnalysisPie from "../../../components/analysis/AnalysisPie";
+import Article from "../../../components/article/Article";
+import "../Post.css";
 
 const { actions } = rest;
 

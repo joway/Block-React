@@ -75,8 +75,8 @@ i = helpers.lastLineIndex(lines, /^\}\);$/);
 lines.splice(i, 0, `  ${context.CAMEL_FEATURE_NAME}: ${context.CAMEL_FEATURE_NAME}Reducer,`);
 toSave(targetPath, lines);
 
-/* ===== Add route to routeConfig.js ===== */
-console.log('Register route');
+/* ===== Add router to routeConfig.js ===== */
+console.log('Register router');
 targetPath = path.join(helpers.getProjectRoot(), 'src/common/routeConfig.js');
 lines = helpers.getLines(targetPath);
 i = helpers.lastLineIndex(lines, /^import /);

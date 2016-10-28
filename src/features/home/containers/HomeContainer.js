@@ -1,15 +1,13 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { rest } from '../../../common';
-import { Row, Col, Spin, Card, Pagination } from 'antd';
-import ArticlesList from '../components/ArticlesList'
-import Paging from '../../../components/Paging'
-import Profile from '../../../components/Profile'
-import AnalysisPie from '../../../components/AnalysisPie';
-import SkillPie from '../../../components/SkillPie';
-import Loading from '../../../components/Loading';
-
-import '../home.css'
+import React from "react";
+import { connect } from "react-redux";
+import rest from "../../../common/rest";
+import { Row, Col, Spin, Card, Pagination } from "antd";
+import ArticlesList from "../components/ArticlesList";
+import Profile from "../../../components/profile/Profile";
+import AnalysisPie from "../../../components/analysis/AnalysisPie";
+import SkillPie from "../../../components/profile/SkillPie";
+import Loading from "../../../components/decorator/Loading";
+import "../home.css";
 
 const { actions } = rest;
 

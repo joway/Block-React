@@ -1,12 +1,10 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { rest } from '../../../common';
-import { Row, Col, Card, Spin } from 'antd';
-import Article from '../../../components/Article';
-import Loading from '../../../components/Loading';
-import CommentPanel from '../../../components/comment/components/CommentPanel'
-
-import '../About.css'
+import React from "react";
+import { connect } from "react-redux";
+import rest from "../../../common/rest";
+import { Row, Col, Card, Spin } from "antd";
+import Article from "../../../components/article/Article";
+import Loading from "../../../components/decorator/Loading";
+import CommentPanel from "../../../components/comment/CommentPanel";
 
 const { actions } = rest;
 

@@ -42,8 +42,8 @@ helpers.removeLines(lines, `import ${context.CAMEL_FEATURE_NAME}Reducer from '..
 helpers.removeLines(lines, `  ${context.CAMEL_FEATURE_NAME}: ${context.CAMEL_FEATURE_NAME}Reducer,`);
 toSave(targetPath, lines);
 
-/* ===== Remove route from routeConfig.js ===== */
-console.log('Un-register route');
+/* ===== Remove router from routeConfig.js ===== */
+console.log('Un-register router');
 targetPath = path.join(helpers.getProjectRoot(), 'src/common/routeConfig.js');
 lines = helpers.getLines(targetPath);
 helpers.removeLines(lines, `import ${context.CAMEL_FEATURE_NAME}Route from '../features/${context.KEBAB_FEATURE_NAME}/route';`);

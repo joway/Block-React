@@ -1,4 +1,4 @@
-import { Modal } from 'antd';
+import { Modal } from "antd";
 
 export const successDialog = (msg = '操作成功', title = '提示',) => {
   Modal.success({

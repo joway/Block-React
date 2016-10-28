@@ -15,9 +15,11 @@
     color: #333;
     font-weight: 600;
 }
-.article-card-title:hover{
+
+.article-card-title:hover {
     color: #6495ED;
 }
-.article-card-tags{
+
+.article-card-tags {
     float: right;
 }

@@ -1,10 +1,9 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { rest } from '../../../common';
-import { Row, Col, Card, Timeline, Icon, Tag } from 'antd';
-import randomColor from 'randomcolor';
-
-import '../TimeLine.css'
+import React from "react";
+import { connect } from "react-redux";
+import rest from "../../../common/rest";
+import { Row, Col, Card, Timeline, Icon, Tag } from "antd";
+import randomColor from "randomcolor";
+import "../TimeLine.css";
 
 const { actions } = rest;
 
@@ -41,7 +40,8 @@ class TimeLineContainer extends React.Component {
                     activities.map((activity) => (
                       <Timeline.Item color={randomColor({luminosity: 'light'})} key={activity.id}>
                         <span className="m-r-10">{activity.activity_content}</span>
-                        <Tag color={randomColor({luminosity: 'light'})} className="activity-author">{activity.creator}</Tag>
+                        <Tag color={randomColor({luminosity: 'light'})}
+                             className="activity-author">{activity.creator}</Tag>
                         <Icon type="calendar"/>
                         {activity.created_at}
                       </Timeline.Item>

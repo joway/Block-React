@@ -1,9 +1,8 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { rest } from '../../../common';
-import { Row, Col, Card, Carousel } from 'antd';
-
-import '../Photo.css'
+import React from "react";
+import { connect } from "react-redux";
+import rest from "../../../common/rest";
+import { Row, Col, Card, Carousel } from "antd";
+import "../Photo.css";
 
 const { actions } = rest;
 
@@ -21,12 +20,12 @@ class PhotoContainer extends React.Component {
             <Row className="content-center">
               <Col span={18} offset={3}>
                 <Carousel autoplay effect="fade">
-                  <Row type="flex" justify="space-around" align="middle"  >
+                  <Row type="flex" justify="space-around" align="middle">
                     <Col span={18} offset={3}>
                       <img src="https://o48qtc2r4.qnssl.com/image40.jpg" className="carousel-img"/>
                     </Col>
                   </Row>
-                  <Row type="flex" justify="space-around" align="middle"  >
+                  <Row type="flex" justify="space-around" align="middle">
                     <Col span={18} offset={3}>
                       <img src="https://o48qtc2r4.qnssl.com/image37.jpg" className="carousel-img"/>
                     </Col>

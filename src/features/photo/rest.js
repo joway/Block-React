@@ -1,8 +1,7 @@
-import { transformers } from 'redux-api';
+import { transformers } from "redux-api";
 
 const headers = {
   Accept: "application/json"
 };
 
-export default {
-};
+export default {};

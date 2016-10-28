@@ -46,7 +46,7 @@ describe('cli: feature test', function() { // eslint-disable-line
       `import ${CAMEL_TEST_FEATURE_NAME}Reducer from \'../features/${TEST_FEATURE_NAME}/redux/reducer\';`,
       `  ${CAMEL_TEST_FEATURE_NAME}: ${CAMEL_TEST_FEATURE_NAME}Reducer,`,
     ]);
-    expectLines(mapFile('common/routeConfig.js'), [
+    expectLines(mapFile('common/RouterConfig.js'), [
       `import ${CAMEL_TEST_FEATURE_NAME}Route from \'../features/${TEST_FEATURE_NAME}/route\';`,
       `    ${CAMEL_TEST_FEATURE_NAME}Route,`,
     ]);
@@ -64,7 +64,7 @@ describe('cli: feature test', function() { // eslint-disable-line
     expectNoLines(mapFile('common/rootReducer.js'), [
       CAMEL_TEST_FEATURE_NAME,
     ]);
-    expectNoLines(mapFile('common/routeConfig.js'), [
+    expectNoLines(mapFile('common/RouterConfig.js'), [
       `${CAMEL_TEST_FEATURE_NAME}Route`,
     ]);
     expectNoLines(mapFile('styles/index.less'), [

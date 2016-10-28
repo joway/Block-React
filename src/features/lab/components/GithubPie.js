@@ -1,8 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { Row, Col, Card, Timeline, Tag, Icon } from 'antd';
-import { Link } from 'react-router';
-import ReactMarkdown from 'react-markdown';
-import randomColor from 'randomcolor';
+import React, { Component, PropTypes } from "react";
+import { Row, Col, Card, Timeline, Tag, Icon } from "antd";
+import { Link } from "react-router";
+import randomColor from "randomcolor";
 
 class GithubPie extends Component {
   render () {

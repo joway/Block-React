@@ -1,5 +1,5 @@
-import { transformers } from 'redux-api';
-import { ARTICLE_LIST_API } from "../../utils/apis";
+import { transformers } from "redux-api";
+import { ARTICLE_LIST_API } from "../../utils/Apis";
 
 const headers = {
   Accept: "application/json"

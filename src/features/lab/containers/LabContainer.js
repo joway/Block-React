@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { rest } from '../../../common';
-import { Row, Col, Card, Tag } from 'antd';
-import Loading from '../../../components/Loading';
-import GithubPie from '../components/GithubPie';
-import '../Lab.css'
+import React from "react";
+import { connect } from "react-redux";
+import rest from "../../../common/rest";
+import { Row, Col, Card, Tag } from "antd";
+import Loading from "../../../components/decorator/Loading";
+import GithubPie from "../components/GithubPie";
+import "../Lab.css";
 
 const { actions } = rest;
 
@@ -15,7 +15,7 @@ class LabContainer extends React.Component {
 
   syncGithubRepos = () => {
     const { dispatch } = this.props;
-    dispatch(actions.githubRepos({sort: 'updated'}));
+    dispatch(actions.githubRepos({ sort: 'updated' }));
   };
 
   componentWillMount = () => {

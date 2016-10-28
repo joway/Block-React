@@ -1,14 +1,15 @@
-import React from 'react'
-import { bindActionCreators } from 'redux';
+import React from "react";
+import { bindActionCreators } from "redux";
 import { async } from "redux-api";
-import { connect } from 'react-redux';
-import { Row, Col, Card } from 'antd';
-import RegisterComponent from '../components/RegisterComponent';
-import { rest } from '../../../common';
-import Wrapper  from '../../../components/Wrapper';
-import { successDialog } from '../../../utils/dialog'
-const { actions } = rest;
+import { connect } from "react-redux";
+import { Row, Col, Card } from "antd";
+import RegisterComponent from "../components/RegisterComponent";
+import rest from "../../../common/rest";
+import { Wrapper } from "../../../components/decorator";
+import { successDialog } from "../../../utils/dialog";
 
+
+const { actions } = rest;
 
 @connect((state) => ({}))
 class RegisterContainer extends React.Component {

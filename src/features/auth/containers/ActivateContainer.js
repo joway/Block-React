@@ -1,12 +1,11 @@
-import React from 'react'
-import { bindActionCreators } from 'redux';
+import React from "react";
+import { bindActionCreators } from "redux";
 import { async } from "redux-api";
-import { connect } from 'react-redux';
-import { Row, Col, Card, Button, Steps } from 'antd';
-import { rest } from '../../../common';
-import Wrapper  from '../../../components/Wrapper';
-import { infoDialog, errorDialog } from "../../../utils/dialog";
-import { handleApiError } from "../../../utils/helpers";
+import { connect } from "react-redux";
+import { Row, Col, Card, Button, Steps } from "antd";
+import rest from "../../../common/rest";
+import Wrapper from "../../../components/decorator/Wrapper";
+import { infoDialog } from "../../../utils/dialog";
 
 const { actions } = rest;
 

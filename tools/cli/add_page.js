@@ -77,7 +77,7 @@ lines.splice(i, 0, `  ${pageName},`);
 toSave(targetPath, lines);
 
 /* ==== Add to router.js ==== */
-console.log('Add route to router.js');
+console.log('Add router to router.js');
 targetPath = path.join(targetDir, 'route.js');
 lines = helpers.getLines(targetPath);
 i = helpers.lineIndex(lines, '} from \'./index\';');

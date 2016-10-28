@@ -1,12 +1,11 @@
-import 'babel-polyfill';
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { browserHistory, Router } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-
-import configStore from './common/config/configStore';
-import routeConfig from './common/config/routeConfig';
+import "babel-polyfill";
+import React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import { browserHistory, Router } from "react-router";
+import { syncHistoryWithStore } from "react-router-redux";
+import configStore from "./common/config/configStore";
+import routeConfig from "./common/router/RouterConfig";
 
 const store = configStore(browserHistory, window.__INITIAL_STATE__);
 const history = syncHistoryWithStore(browserHistory, store);

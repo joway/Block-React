@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import rest from './config/restConfig';
-import 'antd/dist/antd.css';
-import '../styles/github.css';
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
-import NavRoutes from './NavRoutes';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
+import rest from "./rest";
+import { Nav } from "../components/nav";
+import Footer from "../components/footer/Footer";
+import NavRoutes from "./router/NavRoutes";
+import "antd/dist/antd.css";
+import "../styles/github.css";
 
 const { actions } = rest;
 

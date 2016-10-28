@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link, browserHistory } from 'react-router';
-import { bindActionCreators } from 'redux';
+import React from "react";
+import { Link, browserHistory } from "react-router";
+import { bindActionCreators } from "redux";
 import { async } from "redux-api";
-import { connect } from 'react-redux';
-import { Row, Col, Card, Button } from 'antd';
-import { rest } from '../../../common';
-import Wrapper  from '../../../components/Wrapper';
+import { connect } from "react-redux";
+import { Row, Col, Card, Button } from "antd";
+import rest from "../../../common/rest";
+import Wrapper from "../../../components/decorator/Wrapper";
 
 const { actions } = rest;
 

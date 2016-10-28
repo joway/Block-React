@@ -1,5 +1,5 @@
-import React from 'react';
-import PostContainer from './containers/PostContainer';
+import React from "react";
+import PostContainer from "./containers/PostContainer";
 
 export default {
   path: 'post',

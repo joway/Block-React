@@ -1,10 +1,6 @@
-import { transformers } from 'redux-api';
-import { COMMENT_API } from "../../utils/apis";
-
-const headers = {
-  "Accept": "application/json",
-  "Content-Type": "application/json",
-};
+import { transformers } from "redux-api";
+import { COMMENT_API } from "../../utils/Apis";
+import headers from "../../utils/headers";
 
 export default {
   comment: {

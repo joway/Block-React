@@ -9,8 +9,6 @@ const adapter = (fetch) => {
       if (opts.JWT != false) {
         opts.headers = { ...opts.headers, Authorization: `JWT ${token}` };
       }
-    } else {
-      delete opts.headers['Authorization']
     }
     return fetch(url, opts).then((response) => {
       if (response.status != 200) {

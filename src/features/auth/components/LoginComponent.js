@@ -7,14 +7,13 @@ class LoginComponent extends Component {
 
   handleSubmit = (e)=> {
     const { login } = this.props;
-
-    e.preventDefault();
     this.props.form.validateFields((errors, values) => {
       if (errors) {
         return;
       }
       login(values.email, values.password);
     });
+    e.preventDefault();
   };
 
   render () {

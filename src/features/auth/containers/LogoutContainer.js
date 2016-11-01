@@ -12,18 +12,14 @@ const { actions } = rest;
 
 @connect((state) => ({}))
 class LogoutContainer extends React.Component {
-  constructor (props) {
-    super(props);
-    const redirect = this.props.location.query.redirect || '/';
-  }
-
   logout = () => {
     const { dispatch } = this.props;
+    const redirect = this.props.location.query.redirect || '/';
+
     localStorage.removeItem('token');
     async(dispatch,
       (cb) => actions.user(cb)).then((data) => {
-        console.log('logout');
-        browserHistory.push('/');
+        browserHistory.push(redirect);
       }
     );
   };

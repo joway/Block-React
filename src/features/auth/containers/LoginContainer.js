@@ -7,6 +7,7 @@ import rest from "../../../common/rest";
 import LoginComponent from "../components/LoginComponent";
 import Wrapper from "../../../components/decorator/Wrapper";
 import { browserHistory } from "react-router";
+import { successDialog, errorDialog } from "../../../utils/dialog";
 
 const { actions } = rest;
 
@@ -17,19 +18,25 @@ const { actions } = rest;
 class LoginContainer extends React.Component {
   constructor (props) {
     super(props);
-    const redirect = this.props.location.query.redirect || '/';
   }
 
-  login = (email, password) => {
+  login = (email, password, redirect = '/') => {
     const { dispatch } = this.props;
+
     localStorage.removeItem('token');
     async(dispatch,
       (cb) => actions.authLogin({}, {
         body: JSON.stringify({ email, password })
       }, cb)).then((data) => {
+      console.log(data);
+        if (data.error) {
+          errorDialog(data.detail);
+          return;
+        }
+        successDialog(data.detail);
         localStorage.setItem('token', data.token);
         dispatch(actions.user());
-        browserHistory.push('/');
+        browserHistory.push(redirect);
       }
     );
   };

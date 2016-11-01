@@ -6,7 +6,8 @@ import { Row, Col, Card } from "antd";
 import RegisterComponent from "../components/RegisterComponent";
 import rest from "../../../common/rest";
 import { Wrapper } from "../../../components/decorator";
-import { successDialog } from "../../../utils/dialog";
+import { successDialog, errorDialog } from "../../../utils/dialog";
+import { browserHistory } from "react-router";
 
 
 const { actions } = rest;
@@ -24,8 +25,12 @@ class RegisterContainer extends React.Component {
       (cb) => actions.authRegister({}, {
         body: JSON.stringify({ email, password })
       }, cb)).then((data) => {
-        console.log(data);
-        successDialog('注册成功');
+        if (data.error) {
+          errorDialog(data.detail);
+        } else {
+          successDialog(data.detail);
+          browserHistory.push('/login');
+        }
       }
     );
   };

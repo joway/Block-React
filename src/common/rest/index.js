@@ -1,1 +1,1 @@
-export default  from './RestConfig'
+export default  from './RestConfig';

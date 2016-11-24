@@ -9,7 +9,7 @@ export default class Profile extends Component {
     return (
       <Card style={{textAlign: 'center'}} className="content-block">
         <Row>
-          <img alt="logo" height="256px" className="round" src="https://joway.wang/assets/img/logo.jpg"/>
+          <img alt="logo" height="256px" className="round" src={require('../../res/img/logo-wzw.png')}/>
         </Row>
         <Row>
           <Row className="m-10"><h2>Joway Wang</h2></Row>

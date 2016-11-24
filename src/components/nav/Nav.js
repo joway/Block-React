@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import { Link } from "react-router";
 import { Menu, Breadcrumb, Row, Col, Dropdown, Icon } from "antd";
-import "./Nav.css";
+import "./Nav.less";
 
 class Nav extends Component {
 
@@ -63,7 +63,7 @@ class Nav extends Component {
       <div className="ant-layout-top m-b-30">
         <div className="ant-layout-header">
           <div className="ant-layout-wrapper">
-            <img className="ant-layout-logo"/>
+            <a href="/"><img className="ant-layout-logo" src={require('../../res/img/logo-wzw.png')}/></a>
             {this.renderLinks(this.props.routes)}
           </div>
         </div>

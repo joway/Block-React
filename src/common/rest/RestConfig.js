@@ -1,6 +1,7 @@
 import reduxApi from "redux-api";
 import Rests from "./Rests";
 import { browserHistory } from "react-router";
+import 'whatwg-fetch';
 
 const adapter = (fetch) => {
   return function (url, opts) {
